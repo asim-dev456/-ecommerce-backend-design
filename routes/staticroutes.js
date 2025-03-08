@@ -1,17 +1,13 @@
 const express = require('express');
-const path = require('path');
+const {
+  homepage,
+  getAllProducts,
+  getProductById,
+} = require('../controller/staticroutecontrol');
 const router = express.Router();
 
-const publicDir = path.join(__dirname, '..', 'public');
-router.get('/', (req, res) => {
-  res.sendFile(path.join(publicDir, 'index.html'));
-});
+router.get('/', homepage);
 
-router.get('/products', (req, res) => {
-  res.sendFile(path.join(publicDir, 'product.html'));
-});
-router.get('/products/:id', (req, res) => {
-  const id = req.params.id;
-  res.sendFile(path.join(publicDir, 'getproductById.html'));
-});
+router.get('/products', getAllProducts);
+router.get('/products/:id', getProductById);
 module.exports = router;
