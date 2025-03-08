@@ -13,4 +13,5 @@ async function getProductById(req, res) {
   const id = req.params.id;
   res.sendFile(path.join(publicDir, 'getproductById.html'));
 }
+
 module.exports = { homepage, getAllProducts, getProductById };
